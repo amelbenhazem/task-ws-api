@@ -1,6 +1,6 @@
-# Application de Gestion de Tâches avec WebSocket
+# API de Gestion de Tâches avec WebSocket
 
-Une application complète pour la gestion de tâches en temps réel, composée d'un backend Node.js et d'un frontend React.
+Une API RESTful avec WebSocket pour la gestion de tâches en temps réel.
 
 ## Fonctionnalités
 
@@ -39,21 +39,6 @@ Une application complète pour la gestion de tâches en temps réel, composée d
 - Tests d'API intégrés
 - Exemples de requêtes et réponses
 
-## Structure du Projet
-
-```
-.
-├── client/          # Frontend React
-└── server/          # Backend Node.js
-    ├── config/      # Configuration (Swagger, etc.)
-    ├── controllers/ # Contrôleurs pour la logique métier
-    ├── middleware/  # Middleware (auth, etc.)
-    ├── models/      # Modèles Mongoose
-    ├── routes/      # Routes API
-    ├── sockets/     # Configuration WebSocket
-    └── server.js    # Point d'entrée du serveur
-```
-
 ## Prérequis
 
 - Node.js (v14 ou supérieur)
@@ -68,20 +53,13 @@ git clone https://github.com/amelbenhazem/task-ws-api.git
 cd task-ws-api
 ```
 
-2. Installer les dépendances du backend :
+2. Installer les dépendances :
 ```bash
-cd server
 npm install
 ```
 
-3. Installer les dépendances du frontend :
-```bash
-cd ../client
-npm install
-```
-
-4. Configurer les variables d'environnement du backend :
-- Dans le dossier `server`, copier le fichier `.env.example` en `.env`
+3. Configurer les variables d'environnement :
+- Copier le fichier `.env.example` en `.env`
 - Modifier les valeurs selon votre configuration :
   ```
   PORT=5000
@@ -91,19 +69,16 @@ npm install
 
 ## Exécution du Projet
 
-### Backend (Server)
+### Mode Développement
 ```bash
-cd server
 npm run dev
 ```
 Le serveur démarrera sur `http://localhost:5000`
 
-### Frontend (Client)
+### Mode Production
 ```bash
-cd client
 npm start
 ```
-L'application frontend sera disponible sur `http://localhost:3000`
 
 ## Documentation API
 
@@ -156,31 +131,26 @@ curl -X POST http://localhost:5000/api/tasks \
   -d '{"title":"Ma première tâche","description":"Description","status":"en_cours"}'
 ```
 
+## Structure du Projet
+
+```
+src/
+├── config/         # Configuration (Swagger, etc.)
+├── controllers/    # Contrôleurs pour la logique métier
+├── middleware/     # Middleware (auth, etc.)
+├── models/         # Modèles Mongoose
+├── routes/         # Routes API
+├── sockets/        # Configuration WebSocket
+└── server.js       # Point d'entrée de l'application
+```
+
 ## Tests
 
-### Backend
+Pour exécuter les tests :
 ```bash
-cd server
 npm test
 ```
 
-### Frontend
-```bash
-cd client
-npm test
-```
-## Features to add
-- Task Organization & Management
-### Task Organization & Management
-- Filtrage des tâches par date, statut, et assignation
-- Système de priorité (Urgent, Haute, Moyenne, Basse)
-- Étiquettes/Tags colorés personnalisables
-- Vue Kanban avec drag & drop entre colonnes
-- Recherche avancée avec filtres combinés
+## Licence
 
-### Collaboration & Partage
-- Commentaires sur les tâches avec support de markdown
-- Mentions d'utilisateurs (@username) avec notifications
-- Partage de tâches avec des liens publics
-- Groupes d'utilisateurs et permissions
-- Historique des modifications
+ISC
