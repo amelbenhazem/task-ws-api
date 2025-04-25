@@ -1,5 +1,4 @@
-"use client";
-
+// Supprime tout le code lié à AuthGuard.
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks/useAuth';
@@ -35,4 +34,4 @@ export function AuthGuard({ children }: AuthGuardProps) {
   }
 
   return <>{children}</>;
-} 
+}
