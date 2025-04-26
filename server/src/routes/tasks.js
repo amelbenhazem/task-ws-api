@@ -34,7 +34,7 @@ const taskController = require('../controllers/taskController');
  */
 
 // Routes protégées par authentification
-router.use(auth);
+// router.use(auth);
 
 /**
  * @swagger

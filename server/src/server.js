@@ -30,7 +30,7 @@ app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Connexion à MongoDB
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect('mongodb+srv://aayabellazreg:KwE0EhgL7TXcRDne@cluster2.hh4uiy3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2')
 .then(() => console.log('Connecté à MongoDB'))
 .catch(err => console.error('Erreur de connexion à MongoDB:', err));
 

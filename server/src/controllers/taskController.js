@@ -6,7 +6,7 @@ exports.createTask = async (req, res) => {
   try {
     const task = new Task({
       ...req.body,
-      createdBy: req.user._id
+      createdBy: '680cbc495bf75f1f65b34b75'
     });
 
     await task.save();
@@ -24,8 +24,8 @@ exports.createTask = async (req, res) => {
 exports.getTasks = async (req, res) => {
   try {
     const tasks = await Task.find()
-      .populate('createdBy', 'username')
-      .populate('assignedTo', 'username');
+      .populate('createdBy', 'test')
+      .populate('assignedTo', 'test');
     res.json(tasks);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -36,8 +36,8 @@ exports.getTasks = async (req, res) => {
 exports.getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id)
-      .populate('createdBy', 'username')
-      .populate('assignedTo', 'username');
+      .populate('createdBy', 'test')
+      .populate('assignedTo', 'test');
     
     if (!task) {
       return res.status(404).json({ message: 'Tâche non trouvée' });

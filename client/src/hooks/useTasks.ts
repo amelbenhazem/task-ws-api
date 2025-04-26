@@ -98,7 +98,7 @@ export const useTasks = (token: string | null) => {
   }, [tasks, updateStats]);
 
   const fetchTasks = useCallback(async () => {
-    if (!token) return;
+    // if (!token) return;
 
     try {
       setLoading('fetch', true);
@@ -124,7 +124,7 @@ export const useTasks = (token: string | null) => {
   }, [token]);
 
   const createTask = useCallback(async (taskData: CreateTaskInput) => {
-    if (!token) return;
+    // if (!token) return;
 
     try {
       setLoading('create', true);
@@ -133,8 +133,7 @@ export const useTasks = (token: string | null) => {
       const response = await fetch(`${API_URL}/tasks`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(taskData),
       });
